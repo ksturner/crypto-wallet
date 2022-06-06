@@ -1,0 +1,36 @@
+{
+    "name": "blackpaddle3",
+    "version": "1.0.0",
+    "repository": "https://github.com/ksturner/blackpaddle3.git",
+    "author": "Kevin Turner <kevin@ksturner.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "@parcel/transformer-svg-react": "^2.4.0",
+        "@parcel/transformer-typescript-tsc": "^2.4.0",
+        "@types/cors": "^2.8.12",
+        "@types/express": "^4.17.13",
+        "@types/node": "^17.0.23",
+        "@types/react": "^17.0.43",
+        "@types/react-dom": "^17.0.14",
+        "concurrently": "^7.0.0",
+        "nodemon": "^2.0.15",
+        "parcel": "^2.4.0",
+        "postcss": "^8.4.12",
+        "tailwindcss": "^3.0.23",
+        "typescript": "^4.6.3"
+    },
+    "dependencies": {
+        "axios": "^0.26.1",
+        "cors": "^2.8.5",
+        "express": "^4.17.3",
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0"
+    },
+    "scripts": {
+        "build": "./build.sh && nodemon -e ts,tsx,css,html --watch front --exec \"./build.sh\"",
+        "check": "tsc --noEmit",
+        "clean": "./clean.sh",
+        "serve": "nodemon back/app.ts",
+        "start": "concurrently --kill-others \"yarn build\" \"yarn serve\""
+    }
+}

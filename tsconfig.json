@@ -1,0 +1,15 @@
+{
+    "include": ["front/**/*.tsx?", "back/**/*.tsx?"],
+    "exclude": [
+        "node_modules",
+        "**/*.d.ts",
+        ".parcel-cache",
+        ".vscode",
+        "build"
+    ],
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "esModuleInterop": true,
+        "jsxImportSource": "react"
+    }
+}
