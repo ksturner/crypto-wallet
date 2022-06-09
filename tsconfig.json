@@ -1,5 +1,5 @@
 {
-    "include": ["front/**/*.tsx?", "back/**/*.tsx?"],
+    "include": ["front/**/*.tsx?", "*.ts"],
     "exclude": [
         "node_modules",
         "**/*.d.ts",
