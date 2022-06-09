@@ -66,7 +66,8 @@ const contractAbiFragment = [
 function App({}: Props) {
     const [wallet, setWallet] = React.useState(null);
     const [count, setCount] = React.useState(50);
-    const [walletBalances, setWalletBalances] = React.useState([]);
+    const [walletBalances, setWalletBalances] = React.useState(null);
+    const [searchInProgress, setSearchInProgress] = React.useState(false);
 
     const onWalletChange = (e) => {
         let walletAddress = e.target.value;
@@ -81,6 +82,8 @@ function App({}: Props) {
         const provider = new ethers.providers.JsonRpcProvider(
             `https://mainnet.infura.io/v3/${INFURA_ID}`
         );
+        setWalletBalances(null);
+        setSearchInProgress(true);
 
         const address = wallet;
         let balances = [];
@@ -112,6 +115,7 @@ function App({}: Props) {
         balances.push(t);
         balances = balances.filter((b) => b.balance > 0.00000000000000001);
         await getWalletValue(balances);
+        setSearchInProgress(false);
         setWalletBalances(balances);
     };
 
@@ -168,7 +172,37 @@ function App({}: Props) {
                 </select>
             </div>
             {/* <p>0x94de7E2c73529EbF3206Aa3459e699fbCdfCD49b</p> */}
-            {walletBalances.length > 0 && (
+            {searchInProgress && (
+                <div className="text-center p-4 text-sky-600 inline">
+                    <svg
+                        className="animate-spin -ml-1 mr-3 h-5 w-5 text-sky-500 inline"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                    >
+                        <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            stroke-width="4"
+                        ></circle>
+                        <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
+                    </svg>
+                    <span>Searching...</span>
+                </div>
+            )}
+            {walletBalances && walletBalances.length == 0 && (
+                <div className="text-center p-4 text-red-400">
+                    There were no balances found for this wallet.
+                </div>
+            )}
+            {walletBalances && walletBalances.length > 0 && (
                 <>
                     <div className="text-center mt-8">
                         <h2 className="text-2xl font-bold">Wallet Balances</h2>
