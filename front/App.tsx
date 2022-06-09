@@ -120,6 +120,19 @@ function App({}: Props) {
             <div className="text-center p-8">
                 <h1 className="text-4xl font-bold">Wallet Token Search</h1>
             </div>
+            <div className="text-center pb-0 mb-0 p-2 pt-4 sm:w-full md:w-3/4 lg:w-1/2">
+                <span className="pb-4 block text-left text-gray-500">
+                    This app searches an ERC20 compatible wallet (Ethereum
+                    wallet) for any balances it can find for the top N ERC20
+                    tokens out there by market cap. This is useful for
+                    situations like in MetaMask where you have to manually add
+                    tokens before you can see if you have any balance, which can
+                    be a pain if you've forgotten if you own the tokens.
+                </span>
+                <span className="text-gray-400 block">
+                    Example: 0x94de7E2c73529EbF3206Aa3459e699fbCdfCD49b
+                </span>
+            </div>
             <div className="text-center p-4">
                 Wallet address:
                 <input
