@@ -1,6 +1,6 @@
 
 import { ERC20Token } from './types';
-export const tokensUpdated: string = '2022-06-09T20:36:23.668Z';
+export const tokensUpdated: string = '2022-06-09T20:42:47.629Z';
 export const tokens: ERC20Tokens[] = [
     { name: 'BNB', token: 'BNB', address: '0xB8c77482e45F1F44dE1745F52C74426C631bDD52' },
     { name: 'Tether USD', token: 'USDT', address: '0xdac17f958d2ee523a2206206994597c13d831ec7' },

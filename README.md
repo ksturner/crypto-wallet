@@ -16,6 +16,19 @@ the most popular.
 The app by default searches the top 50 (by market cap) ethereum tokens to see if
 any balances exist, only reporting if there are any.
 
+## Getting Started
+
+> npm install
+
+There is an initial build step that generates a fresh `front/tokens.ts`. If that
+fails, for some unknown reason (it is dependent upon scraping external sources),
+you can simply run `npm run serve` instead of `npm run start` to simply run
+based off of the tokens list that is included in the repo.
+
+> npm start
+
+Open your browser to `http://localhost:1234`.
+
 ## Underlying Tech
 
 This example uses Infura to get a stable ethereum node to make queries from. The
