@@ -50,6 +50,7 @@ console.log(`found ${tokens.length} tokens`);
 
 const tsFile = `
 import { ERC20Token } from './types';
+export const tokensUpdated: string = '${new Date().toISOString()}';
 export const tokens: ERC20Tokens[] = [
 ${tokens
     .map(
