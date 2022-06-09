@@ -1,7 +1,7 @@
 {
-    "name": "blackpaddle3",
+    "name": "crypto-wallet",
     "version": "1.0.0",
-    "repository": "https://github.com/ksturner/blackpaddle3.git",
+    "repository": "https://github.com/ksturner/crypto-wallet.git",
     "author": "Kevin Turner <kevin@ksturner.com>",
     "license": "MIT",
     "devDependencies": {
@@ -14,7 +14,6 @@
         "assert": "^2.0.0",
         "browserify-zlib": "^0.2.0",
         "buffer": "^6.0.3",
-        "concurrently": "^7.0.0",
         "events": "^3.3.0",
         "https-browserify": "^1.0.0",
         "jsdom": "^19.0.0",
@@ -40,10 +39,10 @@
         "tailwindcss": "^3.0.23"
     },
     "scripts": {
-        "build": "./build.sh && nodemon -e ts,tsx,css,html --watch front --exec \"./build.sh\"",
+        "build": "./build.sh",
         "check": "tsc --noEmit",
         "clean": "./clean.sh",
         "serve": "parcel serve front/index.html",
-        "start": "concurrently --kill-others \"npm run build\" \"npm run serve\""
+        "start": "npm run build && npm run serve"
     }
 }
