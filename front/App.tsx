@@ -4,8 +4,6 @@ import { debounce } from 'lodash';
 import { ERC20Token } from './types';
 import { tokens } from './tokens';
 
-import Button from './Button';
-
 type Props = {};
 
 function App({}: Props) {
